@@ -9,7 +9,7 @@ const Fetcher = () => {
     let [error,setError] = useState(false)
 
     const getData = ()=>{
-        fetch('https://ddummyjson.com/products')
+        fetch('https://dummyjson.com/products')
         .then((response)=>response.text())
         .then((data)=>setObject(data))
         .catch(error=>setError(error))
