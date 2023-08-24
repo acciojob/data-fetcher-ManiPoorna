@@ -6,12 +6,13 @@ const Fetcher = () => {
     },[]);
 
     let [object,setObject] = useState("");
+    let [error,setError] = useState(false)
 
     const getData = ()=>{
-        fetch('https://dummyjson.com/products')
+        fetch('https://ddummyjson.com/products')
         .then((response)=>response.text())
         .then((data)=>setObject(data))
-        .catch(error=>console.log("Error", error))
+        .catch(error=>setError(error))
     }
 
     return (
@@ -21,8 +22,19 @@ const Fetcher = () => {
                     !object && <h1>loading..</h1>
                 }
             </div>
+            {/* {
+                error && 
+                <div>
+                    {error}
+                </div>
+            } */}
             {
-                object && <pre>{object}</pre>
+                
+                object && 
+                <div>
+                    <h1>Data Fetched from API</h1>
+                    <pre>{object}</pre>
+                </div>
             }
         </div>
     )
